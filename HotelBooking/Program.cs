@@ -45,15 +45,13 @@
 
         while (appStarts)
         {
-            Console.WriteLine("Menu:");
+            Console.WriteLine("Main menu:");
             Console.WriteLine("1. Book a Room");
             Console.WriteLine("2. List all Booking");
             Console.WriteLine("3. List all available Rooms");
-            Console.WriteLine("4. List all bookings for specific Room");
-            Console.WriteLine("5. List free rooms on a specific date");
-            Console.WriteLine("6. List the total revenue for each room");
-            Console.WriteLine("7. Exit");
-            Console.WriteLine("Select an option from either: 1,2,3,4");
+            Console.WriteLine("4. show query menu");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine("Select an option from either: 1,2,3,4,5");
 
             string input = Console.ReadLine();
             switch (input)
@@ -74,28 +72,9 @@
                     bookingService.ListRooms();
                     break;
                 case "4":
-                    Console.WriteLine("Enter the room number");
-                    if (int.TryParse(Console.ReadLine(), out int roomNumber))
-                    {
-                        bookingService.ListOfAllBookingForSpecificRoom(roomNumber);
-                    }
-                    else
-                        Console.WriteLine("The room number does't exist.");
+                    ShowQueryMenu(bookingService);
                     break;
                 case "5":
-                    Console.Write("Enter the dates (yyy-mm-dd): ");
-                    if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
-                    {
-                        bookingService.AllRoomsFreeAtSpecificDay(date);
-                    }
-                    else
-                        Console.WriteLine("Invalid input dates, please enter correct dates.");
-                    break;
-                case "6":
-                    bookingService.TotalRevenueForAllRooms();
-                    break;
-
-                case "7":
                     appStarts = false;
                     Console.WriteLine("You have exit the app");
                     break;
@@ -135,6 +114,58 @@
         DateTime checkOutDate = bookingService.InputDateTime("Enter check-out date (yyy-mm-dd): ");
 
         return new Booking(guestName, room, checkInDate, checkOutDate);
+    }
+
+    static void ShowQueryMenu(BookingService bookingService)
+    {
+        bool queryMenuOnly = true;
+        while (queryMenuOnly)
+        {
+
+            Console.WriteLine("Query Menu");
+            Console.WriteLine("1. List all booking for specific room");
+            Console.WriteLine("2. List all free rooms on a specific date");
+            Console.WriteLine("3. List the total revenue for each room");
+            Console.WriteLine("4. Return to the Main Menu");
+            Console.WriteLine("Select any of these options: 1, 2, 3, 4");
+
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    Console.WriteLine("Enter the room number");
+                    if (int.TryParse(Console.ReadLine(), out int roomNumber))
+                    {
+                        bookingService.ListOfAllBookingForSpecificRoom(roomNumber);
+                    }
+                    else
+                        Console.WriteLine("The room number does't exist.");
+                    break;
+                case "2":
+                    Console.Write("Enter the dates (yyy-mm-dd): ");
+                    if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
+                    {
+                        bookingService.AllRoomsFreeAtSpecificDay(date);
+                    }
+                    else
+                        Console.WriteLine("Invalid input dates, please enter correct dates.");
+                    break;
+                case "3":
+                    bookingService.TotalRevenueForAllRooms();
+                    break;
+                case "4":
+                    queryMenuOnly = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input, enter the correct option");
+                    break;
+
+            }
+
+
+        }
+
     }
 
 }
