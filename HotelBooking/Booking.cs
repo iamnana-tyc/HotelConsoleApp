@@ -1,19 +1,21 @@
 using System.Dynamic;
 
-public class Booking
+public class Booking : BaseEntity
 {
-
-    //  Booking (guest name, room number, check in date, check out date)
-
     public string GuestName { get; set; }
 
     public Room Room { get; set; }
     public DateTime CheckInDate { get; set; }
     public DateTime CheckOutDate { get; set; }
 
-    public int Duaration => (CheckOutDate - CheckInDate).Days;
+    public int Duration => (CheckOutDate - CheckInDate).Days;
 
+    // Overiding the Display method in BaseEntiry
 
+    public override string Display()
+    {
+        return $"{base.Display()},  CheckInDate: {CheckInDate}, CheckOutDate: {CheckOutDate}, Duration:{Duration}";
+    }
 
     public Booking(string GuestName, Room room, DateTime CheckInDate, DateTime CheckOutDate)
     {
