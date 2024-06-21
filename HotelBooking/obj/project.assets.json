@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nana/Documents/Git proj/Task01/HotelBooking/HotelBooking.csproj",
+      "projectUniqueName": "/Users/nana/Documents/Git proj/Task01/HotelConsoleApp/HotelBooking/HotelBooking.csproj",
       "projectName": "HotelBooking",
-      "projectPath": "/Users/nana/Documents/Git proj/Task01/HotelBooking/HotelBooking.csproj",
+      "projectPath": "/Users/nana/Documents/Git proj/Task01/HotelConsoleApp/HotelBooking/HotelBooking.csproj",
       "packagesPath": "/Users/nana/.nuget/packages/",
-      "outputPath": "/Users/nana/Documents/Git proj/Task01/HotelBooking/obj/",
+      "outputPath": "/Users/nana/Documents/Git proj/Task01/HotelConsoleApp/HotelBooking/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/nana/.nuget/NuGet/NuGet.Config"
