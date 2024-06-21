@@ -65,10 +65,10 @@ Improvements:
 - Query methods better stay in their own static class (like Query and be used like Query.AllBookings(...)).
 - Query methods better take List of rooms/bookings as input and also return a List of rooms/bookings that aligned with your filter (or just return an integer, if a sum is calculated, for example). 
 This way you separate business login in separate method and print the result afterwards - good programming is done this way (after some time you will understand from experience why it is done like this - it makes code more flexible). 
-But your LINQs are not that complex at the moment, it is not really that necessary. But remember separating business logic is good.
 
 Next task:
-Expand the existing Room and Booking model by implementing an interface and using class inheritance. This task will help you understand and practice the concepts of interfaces and inheritance in C#.
+Expand the existing Room and Booking model by implementing an interface and using class inheritance. 
+This task will help you understand and practice the concepts of interfaces and inheritance in C#.
 
 1. Create an Interface: IIdentifiable
 - Define an interface named IIdentifiable.
