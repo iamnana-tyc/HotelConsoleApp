@@ -12,7 +12,7 @@ class Program
 
 
 
-        //  bool appStarts = true;
+        bool appStarts = true;
 
         Query.Initialiaze(bookingService.Rooms, bookingService.Bookings);
 
@@ -37,6 +37,11 @@ class Program
         bookingService.BookAHotel(booking2);
         bookingService.BookAHotel(booking3);
         bookingService.BookAHotel(booking4);
+
+
+
+        // You should uncomment this part to be able to test the case for interface
+
         /*
 
                 // adding rooms to the baseentities
@@ -70,7 +75,7 @@ class Program
                  // check-in date, check-out and duration. This 
                  // Both sub classes are using the same display method yet at run time, the display method displays the 
                  // propeties relevant to the class
-            */
+            
 
         // adding rooms to the indentifiableobject
         identifiableObjects.Add(room1);
@@ -83,9 +88,9 @@ class Program
         identifiableObjects.Add(booking3);
         identifiableObjects.Add(booking4);
 
-        DisplayEntities(identifiableObjects);
+        Display2Entities(identifiableObjects);
 
-        static void DisplayEntities(List<IIdentifiable> identifiables)
+        static void Display2Entities(List<IIdentifiable> identifiables)
         {
             foreach (var identifiable in identifiables)
             {
@@ -101,72 +106,74 @@ class Program
         // it shows the check-in date, check-out and duration even though they both running the same Display method.  
 
 
+        */
 
 
-        //     Query.FindLeastPricedRoom();
 
-        //     Console.WriteLine();
+        Query.FindLeastPricedRoom();
 
-        //     Query.ShowAverageComfortLevel();
+        Console.WriteLine();
+
+        Query.ShowAverageComfortLevel();
 
 
-        //     Console.WriteLine();
-        //     Console.WriteLine("Welcome to Nana Resort Hotel");
-        /*
+        Console.WriteLine();
+        Console.WriteLine("Welcome to Nana Resort Hotel");
 
-                while (appStarts)
-                {
-                    Console.WriteLine("Main menu:");
-                    Console.WriteLine("1. Book a Room");
-                    Console.WriteLine("2. List all Booking");
-                    Console.WriteLine("3. List all available Rooms");
-                    Console.WriteLine("4. show query menu");
-                    Console.WriteLine("5. Exit");
-                    Console.WriteLine("Select an option from either: 1,2,3,4,5");
 
-                    string input = Console.ReadLine();
-                    switch (input)
+        while (appStarts)
+        {
+            Console.WriteLine("Main menu:");
+            Console.WriteLine("1. Book a Room");
+            Console.WriteLine("2. List all Booking");
+            Console.WriteLine("3. List all available Rooms");
+            Console.WriteLine("4. show query menu");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine("Select an option from either: 1,2,3,4,5");
+
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    Booking booking = CreateABooking(bookingService);
+                    if (booking != null)
                     {
-                        case "1":
-                            Booking booking = CreateABooking(bookingService);
-                            if (booking != null)
-                            {
-                                bookingService.BookAHotel(booking);
-                            }
-                            break;
-
-                        case "2":
-                            Query.ListAllBooking();
-                            break;
-
-                        case "3":
-                            Query.ListRooms();
-                            break;
-                        case "4":
-                            ShowQueryMenu(bookingService);
-                            break;
-                        case "5":
-                            appStarts = false;
-                            Console.WriteLine("You have exit the app");
-                            break;
-
-                        default:
-                            Console.WriteLine("Invalid input, enter the correct option");
-                            break;
+                        bookingService.BookAHotel(booking);
                     }
-                }
-                Console.WriteLine();
+                    break;
 
-                Query.LongBookingLessThan7Days();
+                case "2":
+                    Query.ListAllBooking();
+                    break;
 
-                Console.WriteLine();
+                case "3":
+                    Query.ListRooms();
+                    break;
+                case "4":
+                    ShowQueryMenu(bookingService);
+                    break;
+                case "5":
+                    appStarts = false;
+                    Console.WriteLine("You have exit the app");
+                    break;
 
-                Query.NumberOfDaysBookedPerBooking();
+                default:
+                    Console.WriteLine("Invalid input, enter the correct option");
+                    break;
+            }
+        }
+        Console.WriteLine();
 
-                Console.WriteLine();
+        Query.LongBookingLessThan7Days();
 
-                Query.TotalRevenueForEachRoom();
-           */
+        Console.WriteLine();
+
+        Query.NumberOfDaysBookedPerBooking();
+
+        Console.WriteLine();
+
+        Query.TotalRevenueForEachRoom();
+
 
     }
 
